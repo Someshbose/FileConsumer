@@ -5,10 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * FileConsumer Application.
+ * FileConsumer Application main class.
  * 
  * @author sombose
- *
  */
 @Slf4j
 @SpringBootApplication
@@ -24,5 +23,4 @@ public class FileConsumerAppApplication {
     SpringApplication.run(FileConsumerAppApplication.class, args);
     log.info("File Consumer App is started.");
   }
-
 }
