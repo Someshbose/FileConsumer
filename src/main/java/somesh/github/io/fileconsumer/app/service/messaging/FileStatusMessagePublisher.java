@@ -2,6 +2,7 @@ package somesh.github.io.fileconsumer.app.service.messaging;
 
 import org.springframework.core.env.Environment;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.messaging.Message;
 import org.springframework.stereotype.Component;
 import somesh.github.io.fileconsumer.infra.messaging.KafkaMessagePublisher;
 
@@ -30,7 +31,7 @@ public class FileStatusMessagePublisher implements KafkaMessagePublisher<FileSta
 
   @Override
   public String getTopic() {
-    return env.getProperty("kafka.topic-name");
+    return "filestatus";
   }
 
   @Override
@@ -47,4 +48,8 @@ public class FileStatusMessagePublisher implements KafkaMessagePublisher<FileSta
     this.publish(msgEvent.getEventName(), msgEvent);
   }
 
+  @Override
+  public void onFailure(Throwable ex, Message<FileStatusMessageEvent> message) {
+
+  }
 }
