@@ -8,12 +8,14 @@
 		<version>2.4.1-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>somesh.github.io</groupId>
 	<artifactId>fileconsumer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>File-ConsumerApp</name>
 	<description>FileConsumer App</description>
 	<packaging>jar</packaging>
+
 	<properties>
 		<java.version>11</java.version>
 		<docker.image.prefix>somesh.io</docker.image.prefix>
@@ -87,6 +89,7 @@
 		    <artifactId>commons-lang3</artifactId>
 		    <version>3.11</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -173,52 +176,15 @@
 					</execution>
 				</executions>
 			</plugin>
+
 			<plugin>
 	         <groupId>com.spotify</groupId>
 	         <artifactId>dockerfile-maven-plugin</artifactId>
 	         <version>1.4.10</version>
-	         
 	         <configuration>
 	            <repository>${docker.image.prefix}/${project.artifactId}</repository>
 	         </configuration>
 	      </plugin>
 		</plugins>
 	</build>
-
-	<repositories>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-		</repository>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>cetral</id>
-			<name>Maven repos</name>
-			<url>https://repo.maven.apache.org/maven2</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
-
 </project>
