@@ -5,16 +5,21 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import somesh.github.io.fileconsumer.app.service.messaging.FileReceivedDomainEvent;
 
-@Component
-public class XmlProcessor {
+@Component public class XmlProcessor {
 
-    @Async
-    @EventListener
-    public void handleFileRecievedDomainEvent(FileReceivedDomainEvent fileReceivedDomainEvent){
-        processFile();
-    }
+  /**
+   * Handling of Domain Event
+   *
+   * @param fileReceivedDomainEvent FileReceivedDomainEvent
+   */
+  @Async @EventListener public void handleFileRecievedDomainEvent(FileReceivedDomainEvent fileReceivedDomainEvent) {
+    processFile();
+  }
 
-    public void processFile(){
+  /**
+   *
+   */
+  public void processFile() {
 
-    }
+  }
 }
