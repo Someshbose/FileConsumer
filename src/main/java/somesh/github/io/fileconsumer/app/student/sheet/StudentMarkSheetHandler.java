@@ -4,6 +4,7 @@ import org.apache.poi.sl.usermodel.Sheet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import somesh.github.io.fileconsumer.app.shared.SheetParser;
+import somesh.github.io.fileconsumer.app.student.dto.StudentDto;
 import somesh.github.io.fileconsumer.app.student.service.StudentService;
 import somesh.github.io.fileconsumer.domain.model.StudentData;
 
@@ -19,7 +20,7 @@ public class StudentMarkSheetHandler {
   private StudentService studentService;
 
   public void processFile(Sheet sheet){
-    final List<StudentData> studentDataList = this.sheetParser.parseFile(sheet,StudentData.class);
+    final List<StudentDto> studentDataList = this.sheetParser.parseFile(sheet, StudentDto.class);
 
     if (studentDataList.isEmpty()){
       return;

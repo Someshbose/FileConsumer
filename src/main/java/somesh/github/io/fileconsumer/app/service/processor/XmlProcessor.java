@@ -48,7 +48,7 @@ public class XmlProcessor {
       processingMessage = (errorCount == 0)? StringUtils.EMPTY : String.format("%d errors found on Excel file.",errorCount);
 
     }catch (IOException | NotOfficeXmlFileException e){
-      processingMessage = MessageFormat.format("Can't open excel workbook");
+      processingMessage = MessageFormat.format("Can't open excel workbook {}",stream);
       log.error(processingMessage);
     }
   }
