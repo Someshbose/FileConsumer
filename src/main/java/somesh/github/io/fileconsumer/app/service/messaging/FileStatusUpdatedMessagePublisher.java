@@ -13,7 +13,7 @@ import somesh.github.io.fileconsumer.infra.messaging.KafkaMessagePublisher;
  *
  */
 @Component
-public class FileStatusMessagePublisher implements KafkaMessagePublisher<FileStatusMessageEvent> {
+public class FileStatusUpdatedMessagePublisher implements KafkaMessagePublisher<FileStatusUpdatedMessageEvent> {
 
   private final Environment env;
   private final KafkaTemplate<String, String> kafkaTemplate;
@@ -24,7 +24,7 @@ public class FileStatusMessagePublisher implements KafkaMessagePublisher<FileSta
    * @param env Environment
    * @param kafkaTemplate KafkaTemplate<String,String>
    */
-  public FileStatusMessagePublisher(Environment env, KafkaTemplate<String, String> kafkaTemplate) {
+  public FileStatusUpdatedMessagePublisher(Environment env, KafkaTemplate<String, String> kafkaTemplate) {
     this.env = env;
     this.kafkaTemplate = kafkaTemplate;
   }
@@ -44,12 +44,12 @@ public class FileStatusMessagePublisher implements KafkaMessagePublisher<FileSta
    * 
    * @param msgEvent FileStatusMessageEvent
    */
-  public void publish(FileStatusMessageEvent msgEvent) {
+  public void publish(FileStatusUpdatedMessageEvent msgEvent) {
     this.publish(msgEvent.getEventName(), msgEvent);
   }
 
   @Override
-  public void onFailure(Throwable ex, Message<FileStatusMessageEvent> message) {
+  public void onFailure(Throwable ex, Message<FileStatusUpdatedMessageEvent> message) {
 
   }
 }
