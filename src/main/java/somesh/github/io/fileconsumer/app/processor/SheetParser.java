@@ -1,10 +1,11 @@
-package somesh.github.io.fileconsumer.app.shared;
+package somesh.github.io.fileconsumer.app.processor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.sl.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.*;
 import org.springframework.stereotype.Component;
+import somesh.github.io.fileconsumer.app.shared.ExcelRow;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -42,16 +43,18 @@ public class SheetParser<EXCEL_ROW> {
     List<EXCEL_ROW> dtos = new ArrayList<>();
 
     while (rowIterator.hasNext()){
-      processXlsRow(rowIterator.next(), rowHeaders).isPresent(values ->{
+      processXlsRow(rowIterator.next(), rowHeaders).ifPresent(values ->{
         try {
           dtos.add(mapper.convertValue(values,clazz));
         }catch (IllegalArgumentException e){
           log.error("Failed to parse line.");
+
+          //publish FileElementValidationFailed DomainEvent
         }
       });
     }
 
-    return null;
+    return dtos;
   }
 
   /**

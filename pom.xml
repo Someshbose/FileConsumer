@@ -144,26 +144,26 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-	            <groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-checkstyle-plugin</artifactId>
-	            <version>3.0.0</version>
-	            <configuration>
-	            	<failsOnError>true</failsOnError>
-	                <configLocation>src/main/resources/checkstyle.xml</configLocation>
-	                <consoleOutput>true</consoleOutput>
-	            </configuration>
-	            <executions>
-	            	<execution>
-	            		<id>validate</id>
-	            		<phase>validate</phase>
-	            		<goals>
-							<goal>check</goal>
-						</goals>
-	            	</execution>
-	            </executions>
-	            
-	        </plugin>
+<!--			<plugin>-->
+<!--	            <groupId>org.apache.maven.plugins</groupId>-->
+<!--	            <artifactId>maven-checkstyle-plugin</artifactId>-->
+<!--	            <version>3.0.0</version>-->
+<!--	            <configuration>-->
+<!--	            	<failsOnError>true</failsOnError>-->
+<!--	                <configLocation>src/main/resources/checkstyle.xml</configLocation>-->
+<!--	                <consoleOutput>true</consoleOutput>-->
+<!--	            </configuration>-->
+<!--	            <executions>-->
+<!--	            	<execution>-->
+<!--	            		<id>validate</id>-->
+<!--	            		<phase>validate</phase>-->
+<!--	            		<goals>-->
+<!--							<goal>check</goal>-->
+<!--						</goals>-->
+<!--	            	</execution>-->
+<!--	            </executions>-->
+<!--	            -->
+<!--	        </plugin>-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>

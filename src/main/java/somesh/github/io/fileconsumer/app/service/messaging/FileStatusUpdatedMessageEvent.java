@@ -1,6 +1,8 @@
 package somesh.github.io.fileconsumer.app.service.messaging;
 
 import java.time.Instant;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -8,22 +10,21 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import somesh.github.io.fileconsumer.app.shared.MessageEvent;
+import somesh.github.io.fileconsumer.domain.model.FileUploadedStatus;
 import somesh.github.io.fileconsumer.infra.messaging.InstantSerializer;
 
 /**
- * FileUploadedMesageEvent event.
+ * FileStatusMessageEvent event.
  * 
  * @author sombose
- *
  */
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
-public final class FileUploadedMesageEvent implements MessageEvent {
+public class FileStatusUpdatedMessageEvent implements MessageEvent {
 
-  @Builder.Default
-  private String eventName = FileUploadedMesageEvent.class.getSimpleName();
+  private String eventName = FileStatusUpdatedMessageEvent.class.getSimpleName();
 
   @JsonSerialize(using = InstantSerializer.class)
   private Instant eventDate;
@@ -34,6 +35,8 @@ public final class FileUploadedMesageEvent implements MessageEvent {
 
   private String fileTypeCode;
 
-  private String uploadedBy;
+  @Enumerated(EnumType.STRING)
+  private FileUploadedStatus status;
 
+  private String serviceName;
 }

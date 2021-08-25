@@ -3,15 +3,15 @@ package somesh.github.io.fileconsumer.app.student.sheet;
 import org.apache.poi.sl.usermodel.Sheet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import somesh.github.io.fileconsumer.app.shared.SheetParser;
+import somesh.github.io.fileconsumer.app.processor.SheetParser;
+import somesh.github.io.fileconsumer.app.shared.SheetHandler;
 import somesh.github.io.fileconsumer.app.student.dto.StudentDto;
 import somesh.github.io.fileconsumer.app.student.service.StudentService;
-import somesh.github.io.fileconsumer.domain.model.StudentData;
 
 import java.util.List;
 
 @Component
-public class StudentMarkSheetHandler {
+public class StudentMarkSheetHandler implements SheetHandler {
 
   @Autowired
   private SheetParser sheetParser;
@@ -30,4 +30,11 @@ public class StudentMarkSheetHandler {
 
   }
 
+  @Override public String getSheetName() {
+    return null;
+  }
+
+  @Override public void processSheet(org.apache.poi.ss.usermodel.Sheet sheet) {
+
+  }
 }
